@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陳思翰 & 鄭伃庭 的結婚邀請函</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f7f5f0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* 模擬手機外框與響應式容器，電腦與手機皆可完美瀏覽 */
+        .wedding-container {
+            width: 100%;
+            max-width: 480px;
+            background: #ffffff;
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (min-width: 481px) {
+            body {
+                padding: 20px 0;
+            }
+            .wedding-container {
+                border-radius: 16px;
+                min-height: 850px;
+            }
+        }
+
+        /* 頂部標題列 */
+        .header-title {
+            text-align: center;
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: #555;
+            background: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .header-title span {
+            color: #d46a6a;
+            margin: 0 4px;
+        }
+
+        /* 直式捲動頁面區塊 */
+        .scroll-section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 圖片樣式：確保完整保留您的設計，無縫上下排列 */
+        .scroll-section img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* 底部浪漫小語 */
+        .footer-note {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 14px;
+            color: #888;
+            letter-spacing: 1px;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wedding-container">
+        <!-- 頂部標題 -->
+        <div class="header-title">
+            陳思翰 <span>❤</span> 鄭伃庭 的結婚邀請函
+        </div>
+
+        <!-- 一頁式直式捲動內容區塊（您可以將原本婚貝各頁面的圖片網址依序填入下方） -->
+        <div class="scroll-section">
+            <!-- 範例：請將以下 src 替換為您原本 H5 網頁中各個畫面的圖片連結 -->
+            <img src="https://via.placeholder.com/480x850/e9d8d6/885555?text=Wedding+Page+1" alt="婚禮邀請函 頁面1">
+            <img src="https://via.placeholder.com/480x850/d8e2dc/558855?text=Wedding+Page+2" alt="婚禮邀請函 頁面2">
+            <img src="https://via.placeholder.com/480x850/ffe5d9/b56576?text=Wedding+Page+3" alt="婚禮邀請函 頁面3">
+            <img src="https://via.placeholder.com/480x850/f4acb7/9d8189?text=Wedding+Page+4" alt="婚禮邀請函 頁面4">
+        </div>
+
+        <!-- 底部結語 -->
+        <div class="footer-note">
+            期待您的蒞臨見證我們的幸福時刻
+        </div>
+    </div>
+
+</body>
+</html>
