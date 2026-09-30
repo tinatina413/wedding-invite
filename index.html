@@ -12,7 +12,7 @@
         }
 
         body {
-            background-color: #f7f5f0;
+            background-color: #1a1a1a;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             color: #444;
             display: flex;
@@ -21,14 +21,14 @@
             min-height: 100vh;
         }
 
+        /* 手機外框容器，一頁式直式捲動 */
         .wedding-container {
             width: 100%;
             max-width: 480px;
-            background: #ffffff;
-            min-height: 100vh;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+            background: #fcfbfa;
             position: relative;
-            overflow: hidden;
+            overflow-x: hidden;
+            box-shadow: 0 0 25px rgba(0,0,0,0.5);
         }
 
         @media (min-width: 481px) {
@@ -37,23 +37,22 @@
             }
             .wedding-container {
                 border-radius: 16px;
-                min-height: 850px;
             }
         }
 
         /* 頂部標題列 */
         .header-title {
             text-align: center;
-            padding: 20px;
-            font-size: 18px;
+            padding: 15px;
+            font-size: 16px;
             font-weight: 500;
             letter-spacing: 2px;
             color: #555;
             background: #ffffff;
             position: sticky;
             top: 0;
-            z-index: 10;
-            border-bottom: 1px solid #f0f0f0;
+            z-index: 100;
+            border-bottom: 1px solid #eee;
         }
 
         .header-title span {
@@ -61,75 +60,151 @@
             margin: 0 4px;
         }
 
-        /* 倒數計時區塊樣式 */
-        .countdown-section {
-            background: linear-gradient(135deg, #fdfbf7 0%, #f4eae1 100%);
-            padding: 25px 20px;
-            text-align: center;
-            border-bottom: 1px solid #eee;
-        }
-
-        .countdown-title {
-            font-size: 14px;
-            letter-spacing: 3px;
-            color: #8c7b75;
-            margin-bottom: 12px;
-        }
-
-        .countdown-timers {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .time-box {
-            background: #ffffff;
-            padding: 8px 12px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-            min-width: 60px;
-        }
-
-        .time-number {
-            font-size: 18px;
-            font-weight: 600;
-            color: #b56576;
-        }
-
-        .time-label {
-            font-size: 11px;
-            color: #888;
-            margin-top: 2px;
-        }
-
-        /* 圖片區塊與捲動進場動畫 */
-        .scroll-section {
+        /* 每一頁的區塊樣式 (統一高質感留白與排版) */
+        .wedding-page {
+            position: relative;
             width: 100%;
+            padding: 40px 25px;
+            background-color: #fcfbfa;
+            border-bottom: 1px solid #f0ede6;
             display: flex;
             flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
-        .scroll-section img {
+        /* 文字排版樣式 */
+        .page-top-text {
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: #8c7b75;
+            margin-bottom: 20px;
+            align-self: flex-start;
+            line-height: 1.6;
+        }
+
+        .page-main-title {
+            font-size: 24px;
+            letter-spacing: 4px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .page-sub-text {
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: #666;
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        /* 相片自適應圓角樣式 */
+        .photo-frame {
+            width: 100%;
+            max-width: 400px;
+            margin: 15px 0;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            background: #fff;
+        }
+
+        .photo-frame img {
             width: 100%;
             height: auto;
             display: block;
-            object-fit: cover;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
-        .scroll-section img.visible {
-            opacity: 1;
-            transform: translateY(0);
+        /* 倒數計時器專區 (對應第6頁截圖位置) */
+        .countdown-box-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            margin: 20px 0;
+            width: 100%;
+            padding-right: 20px;
+        }
+
+        .time-unit {
+            font-size: 22px;
+            font-weight: 600;
+            color: #b56576;
+            margin: 8px 0;
+            letter-spacing: 1px;
+        }
+
+        .time-unit span {
+            font-size: 13px;
+            color: #888;
+            margin-left: 5px;
+        }
+
+        /* 日曆專區 (對應第7頁截圖) */
+        .calendar-table {
+            width: 100%;
+            max-width: 320px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            font-size: 14px;
+            color: #444;
+        }
+
+        .calendar-table th {
+            color: #b56576;
+            padding: 8px;
+            font-weight: 400;
+        }
+
+        .calendar-table td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .calendar-table td.selected {
+            position: relative;
+            color: #b56576;
+            font-weight: bold;
+        }
+
+        /* 日曆愛心標記 */
+        .calendar-table td.selected::after {
+            content: '♥';
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: #b56576;
+        }
+
+        /* 地圖按鈕樣式 (點擊連至 Google Map) */
+        .map-link-btn {
+            display: block;
+            width: 100%;
+            max-width: 320px;
+            margin: 15px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+        }
+
+        .map-link-btn:hover {
+            transform: scale(1.02);
+        }
+
+        .map-link-btn img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         .footer-note {
             text-align: center;
-            padding: 40px 20px;
-            font-size: 14px;
+            padding: 30px;
+            font-size: 13px;
             color: #888;
-            letter-spacing: 1px;
             background: #fff;
         }
     </style>
@@ -137,40 +212,144 @@
 <body>
 
     <div class="wedding-container">
-        <!-- 頂部標題 -->
+        <!-- 頂部標題列 -->
         <div class="header-title">
             陳思翰 <span>❤</span> 鄭伃庭 的結婚邀請函
         </div>
 
-        <!-- 倒數計時區塊 -->
-        <div class="countdown-section">
-            <div class="countdown-title">距離我們的婚禮還有</div>
-            <div class="countdown-timers">
-                <div class="time-box">
-                    <div id="days" class="time-number">00</div>
-                    <div class="time-label">天</div>
-                </div>
-                <div class="time-box">
-                    <div id="hours" class="time-number">00</div>
-                    <div class="time-label">時</div>
-                </div>
-                <div class="time-box">
-                    <div id="minutes" class="time-number">00</div>
-                    <div class="time-label">分</div>
-                </div>
-                <div class="time-box">
-                    <div id="seconds" class="time-number">00</div>
-                    <div class="time-label">秒</div>
-                </div>
+        <!-- ──────────────── 頁面 1 ──────────────── -->
+        <div class="wedding-page">
+            <div class="page-top-text">WELCOME<br>TO<br>OUR WEDDING<br>/<br>03 / 28</div>
+            <div class="photo-frame">
+                <!-- 請將 photo1.jpg 換成您的第一張相片檔名 -->
+                <img src="photo1.jpg" alt="婚禮合照 1">
+            </div>
+            <div class="page-sub-text" style="font-weight: 600; font-size: 16px; margin-top: 20px;">陳思翰 & 鄭伃庭</div>
+            <div class="page-sub-text" style="font-style: italic; font-size: 13px;">You are the best thing I never planned.</div>
+            <div class="page-sub-text" style="letter-spacing: 3px; margin-top: 10px;">爱 · 是 永 不 止 息</div>
+        </div>
+
+        <!-- ──────────────── 頁面 2 ──────────────── -->
+        <div class="wedding-page">
+            <div class="photo-frame">
+                <!-- 請將 photo2.jpg 換成您的第二張相片檔名 -->
+                <img src="photo2.jpg" alt="婚禮合照 2">
+            </div>
+            <div class="page-sub-text" style="margin-top: 25px; line-height: 2;">
+                情誼如山深似海，文字難表我心意<br>
+                期待您蒞臨這場以婚禮為名義的聚會<br>
+                感謝您的如約而至
             </div>
         </div>
 
-        <!-- 一頁式直式捲動圖片區塊（請將檔名改為您上傳到 GitHub 的圖片檔名） -->
-        <div class="scroll-section">
-            <img src="photo2.jpg" alt="婚禮邀請函 頁面1">
-            <img src="photo2.jpg" alt="婚禮邀請函 頁面2">
-            <img src="photo3.jpg" alt="婚禮邀請函 頁面3">
-            <img src="photo4.jpg" alt="婚禮邀請函 頁面4">
+        <!-- ──────────────── 頁面 3 (新郎介紹) ──────────────── -->
+        <div class="wedding-page">
+            <div class="page-top-text" style="align-self: flex-end; text-align: right;">THE<br><br>GROOM<br><br>/<br><br>陳思翰</div>
+            <div class="photo-frame">
+                <!-- 請將 photo3.jpg 換成新郎獨照檔名 -->
+                <img src="photo3.jpg" alt="新郎獨照">
+            </div>
+            <div class="page-sub-text" style="font-style: italic; font-size: 13px; margin-top: 20px; line-height: 2;">
+                In the flow of time, love is the only eternity.
+            </div>
+        </div>
+
+        <!-- ──────────────── 頁面 4 (新娘介紹) ──────────────── -->
+        <div class="wedding-page">
+            <div class="page-top-text" style="align-self: flex-start;">THE<br><br>BRIDE<br><br>/<br><br>鄭伃庭</div>
+            <div class="photo-frame">
+                <!-- 請將 photo4.jpg 換成新娘獨照檔名 -->
+                <img src="photo4.jpg" alt="新娘獨照">
+            </div>
+            <div class="page-sub-text" style="font-style: italic; font-size: 13px; margin-top: 20px; line-height: 2;">
+                You are the best thing I never planned.
+            </div>
+        </div>
+
+        <!-- ──────────────── 頁面 5 (倒數計時區) ──────────────── -->
+        <div class="wedding-page">
+            <div class="photo-frame">
+                <!-- 請將 photo5.jpg 換成對應相片檔名 -->
+                <img src="photo5.jpg" alt="婚紗照">
+            </div>
+            <div class="page-sub-text" style="margin: 20px 0; line-height: 2;">
+                愛情不在於相互凝視<br>而在於共同眺望遠方
+            </div>
+            <div class="page-sub-text" style="font-style: italic; font-size: 12px; margin-bottom: 20px; color: #777;">
+                Love does not consist in gazing at each other, but in looking outward together in the same direction.
+            </div>
+            <!-- 動態倒數計時位置 -->
+            <div class="countdown-box-wrapper">
+                <div class="time-unit"><span id="days">000</span><span>天</span></div>
+                <div class="time-unit"><span id="hours">00</span><span>时</span></div>
+                <div class="time-unit"><span id="minutes">00</span><span>分</span></div>
+                <div class="time-unit"><span id="seconds">00</span><span>秒</span></div>
+            </div>
+        </div>
+
+        <!-- ──────────────── 頁面 6 (日曆與婚期) ──────────────── -->
+        <div class="wedding-page">
+            <div class="page-top-text" style="align-self: flex-end; text-align: right;">THE<br>WEDDING<br>TIME</div>
+            <div class="photo-frame">
+                <!-- 請將 photo6.jpg 換成日曆頁面的相片檔名 -->
+                <img src="photo6.jpg" alt="日曆合照">
+            </div>
+            <div class="page-sub-text" style="align-self: flex-start; font-style: italic; line-height: 1.8; margin: 15px 0;">
+                You<br>are<br>my end<br>and<br>my<br>beginning
+            </div>
+            <!-- 日曆表格 -->
+            <table class="calendar-table">
+                <thead>
+                    <tr>
+                        <th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th><th>日</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+                    <tr><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td></tr>
+                    <tr><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td></tr>
+                    <tr><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td class="selected">28</td></tr>
+                    <tr><td>29</td><td>30</td><td>31</td><td></td><td></td><td></td><td></td></tr>
+                </tbody>
+            </table>
+            <div class="page-sub-text" style="margin-top: 20px; font-weight: 500;">
+                2027年3月28日 星期日<br>農曆二月廿一 12:00
+            </div>
+        </div>
+
+        <!-- ──────────────── 頁面 7 (地址與 Google 地圖連結) ──────────────── -->
+        <div class="wedding-page">
+            <div class="photo-frame">
+                <!-- 請將 photo7.jpg 換成地址頁相片檔名 -->
+                <img src="photo7.jpg" alt="互動合照">
+            </div>
+            <div class="page-sub-text" style="font-style: italic; margin: 15px 0;">Love is the beauty of the soul.</div>
+            <div class="page-top-text" style="align-self: flex-end; text-align: right;">ADDRESS</div>
+            
+            <!-- 點擊可直接連結至 Google 地圖 -->
+            <a href="https://maps.google.com/?q=格來天漾大飯店" target="_blank" class="map-link-btn" title="點擊開啟 Google 地圖">
+                <!-- 請將 map.jpg 換成您截圖的地圖圖片檔名 -->
+                <img src="map.jpg" alt="地圖導覽">
+            </a>
+
+            <div class="page-sub-text" style="font-weight: 600; font-size: 16px; margin-top: 15px;">
+                格來天漾大飯店13樓<br>天漾廳
+            </div>
+        </div>
+
+        <!-- ──────────────── 頁面 8 (結語) ──────────────── -->
+        <div class="wedding-page">
+            <div class="photo-frame">
+                <!-- 請將 photo8.jpg 換成最後一張相片檔名 -->
+                <img src="photo8.jpg" alt="最後合照">
+            </div>
+            <div class="page-top-text" style="align-self: flex-end; text-align: right;">SAVE<br>THE<br>DATE</div>
+            <div class="page-sub-text" style="margin: 25px 0; line-height: 2;">
+                願你永遠<br>被愛、快樂<br>包圍
+            </div>
+            <div class="page-sub-text" style="margin-top: 15px; font-weight: 500;">
+                好久不見 · 婚禮見
+            </div>
         </div>
 
         <!-- 底部結語 -->
@@ -180,7 +359,7 @@
     </div>
 
     <script>
-        // 倒數計時邏輯 (目標日期：2027年3月28日)
+        // 倒數計時功能 (2027-03-28)
         const weddingDate = new Date("2027-03-28T00:00:00").getTime();
 
         function updateCountdown() {
@@ -188,7 +367,10 @@
             const distance = weddingDate - now;
 
             if (distance < 0) {
-                document.querySelector('.countdown-title').innerText = "我們已經結婚啦！";
+                document.getElementById("days").innerText = "0";
+                document.getElementById("hours").innerText = "0";
+                document.getElementById("minutes").innerText = "0";
+                document.getElementById("seconds").innerText = "0";
                 return;
             }
 
@@ -197,27 +379,14 @@
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("days").innerText = String(days).padStart(2, '0');
-            document.getElementById("hours").innerText = String(hours).padStart(2, '0');
-            document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
-            document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
         }
 
         setInterval(updateCountdown, 1000);
         updateCountdown();
-
-        // 圖片捲動淡入動畫
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.scroll-section img').forEach(img => {
-            observer.observe(img);
-        });
     </script>
 
 </body>
