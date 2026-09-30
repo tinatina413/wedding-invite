@@ -14,14 +14,13 @@
         body {
             background-color: #f7f5f0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            color: #333;
+            color: #444;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
         }
 
-        /* 模擬手機外框與響應式容器，電腦與手機皆可完美瀏覽 */
         .wedding-container {
             width: 100%;
             max-width: 480px;
@@ -62,22 +61,69 @@
             margin: 0 4px;
         }
 
-        /* 直式捲動頁面區塊 */
+        /* 倒數計時區塊樣式 */
+        .countdown-section {
+            background: linear-gradient(135deg, #fdfbf7 0%, #f4eae1 100%);
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .countdown-title {
+            font-size: 14px;
+            letter-spacing: 3px;
+            color: #8c7b75;
+            margin-bottom: 12px;
+        }
+
+        .countdown-timers {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .time-box {
+            background: #ffffff;
+            padding: 8px 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            min-width: 60px;
+        }
+
+        .time-number {
+            font-size: 18px;
+            font-weight: 600;
+            color: #b56576;
+        }
+
+        .time-label {
+            font-size: 11px;
+            color: #888;
+            margin-top: 2px;
+        }
+
+        /* 圖片區塊與捲動進場動畫 */
         .scroll-section {
             width: 100%;
             display: flex;
             flex-direction: column;
         }
 
-        /* 圖片樣式：確保完整保留您的設計，無縫上下排列 */
         .scroll-section img {
             width: 100%;
             height: auto;
             display: block;
             object-fit: cover;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
-        /* 底部浪漫小語 */
+        .scroll-section img.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .footer-note {
             text-align: center;
             padding: 40px 20px;
@@ -96,13 +142,35 @@
             陳思翰 <span>❤</span> 鄭伃庭 的結婚邀請函
         </div>
 
-        <!-- 一頁式直式捲動內容區塊（您可以將原本婚貝各頁面的圖片網址依序填入下方） -->
+        <!-- 倒數計時區塊 -->
+        <div class="countdown-section">
+            <div class="countdown-title">距離我們的婚禮還有</div>
+            <div class="countdown-timers">
+                <div class="time-box">
+                    <div id="days" class="time-number">00</div>
+                    <div class="time-label">天</div>
+                </div>
+                <div class="time-box">
+                    <div id="hours" class="time-number">00</div>
+                    <div class="time-label">時</div>
+                </div>
+                <div class="time-box">
+                    <div id="minutes" class="time-number">00</div>
+                    <div class="time-label">分</div>
+                </div>
+                <div class="time-box">
+                    <div id="seconds" class="time-number">00</div>
+                    <div class="time-label">秒</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 一頁式直式捲動圖片區塊（請將檔名改為您上傳到 GitHub 的圖片檔名） -->
         <div class="scroll-section">
-            <!-- 範例：請將以下 src 替換為您原本 H5 網頁中各個畫面的圖片連結 -->
-            <img src="https://via.placeholder.com/480x850/e9d8d6/885555?text=Wedding+Page+1" alt="婚禮邀請函 頁面1">
-            <img src="https://via.placeholder.com/480x850/d8e2dc/558855?text=Wedding+Page+2" alt="婚禮邀請函 頁面2">
-            <img src="https://via.placeholder.com/480x850/ffe5d9/b56576?text=Wedding+Page+3" alt="婚禮邀請函 頁面3">
-            <img src="https://via.placeholder.com/480x850/f4acb7/9d8189?text=Wedding+Page+4" alt="婚禮邀請函 頁面4">
+            <img src="螢幕擷取畫面 2026-09-16 154153.png" alt="婚禮邀請函 頁面1">
+            <img src="photo2.jpg" alt="婚禮邀請函 頁面2">
+            <img src="photo3.jpg" alt="婚禮邀請函 頁面3">
+            <img src="photo4.jpg" alt="婚禮邀請函 頁面4">
         </div>
 
         <!-- 底部結語 -->
@@ -110,6 +178,47 @@
             期待您的蒞臨見證我們的幸福時刻
         </div>
     </div>
+
+    <script>
+        // 倒數計時邏輯 (目標日期：2027年3月28日)
+        const weddingDate = new Date("2027-03-28T00:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                document.querySelector('.countdown-title').innerText = "我們已經結婚啦！";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = String(days).padStart(2, '0');
+            document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // 圖片捲動淡入動畫
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.scroll-section img').forEach(img => {
+            observer.observe(img);
+        });
+    </script>
 
 </body>
 </html>
