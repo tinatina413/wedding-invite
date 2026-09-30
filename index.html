@@ -21,7 +21,6 @@
             min-height: 100vh;
         }
 
-        /* 手機外框容器，一頁式直式捲動 */
         .wedding-container {
             width: 100%;
             max-width: 480px;
@@ -40,7 +39,6 @@
             }
         }
 
-        /* 頂部標題列 */
         .header-title {
             text-align: center;
             padding: 15px;
@@ -60,7 +58,6 @@
             margin: 0 4px;
         }
 
-        /* 每一頁的區塊樣式 (統一高質感留白與排版) */
         .wedding-page {
             position: relative;
             width: 100%;
@@ -73,7 +70,6 @@
             text-align: center;
         }
 
-        /* 文字排版樣式 */
         .page-top-text {
             font-size: 12px;
             letter-spacing: 3px;
@@ -81,14 +77,6 @@
             margin-bottom: 20px;
             align-self: flex-start;
             line-height: 1.6;
-        }
-
-        .page-main-title {
-            font-size: 24px;
-            letter-spacing: 4px;
-            color: #333;
-            margin-bottom: 15px;
-            font-weight: 300;
         }
 
         .page-sub-text {
@@ -99,7 +87,6 @@
             line-height: 1.8;
         }
 
-        /* 相片自適應圓角樣式 */
         .photo-frame {
             width: 100%;
             max-width: 400px;
@@ -116,7 +103,6 @@
             display: block;
         }
 
-        /* 倒數計時器專區 (對應第6頁截圖位置) */
         .countdown-box-wrapper {
             display: flex;
             flex-direction: column;
@@ -140,7 +126,6 @@
             margin-left: 5px;
         }
 
-        /* 日曆專區 (對應第7頁截圖) */
         .calendar-table {
             width: 100%;
             max-width: 320px;
@@ -167,7 +152,6 @@
             font-weight: bold;
         }
 
-        /* 日曆愛心標記 */
         .calendar-table td.selected::after {
             content: '♥';
             position: absolute;
@@ -178,7 +162,6 @@
             color: #b56576;
         }
 
-        /* 地圖按鈕樣式 (點擊連至 Google Map) */
         .map-link-btn {
             display: block;
             width: 100%;
@@ -212,28 +195,25 @@
 <body>
 
     <div class="wedding-container">
-        <!-- 頂部標題列 -->
         <div class="header-title">
             陳思翰 <span>❤</span> 鄭伃庭 的結婚邀請函
         </div>
 
-        <!-- ──────────────── 頁面 1 ──────────────── -->
+        <!-- 頁面 1 -->
         <div class="wedding-page">
             <div class="page-top-text">WELCOME<br>TO<br>OUR WEDDING<br>/<br>03 / 28</div>
             <div class="photo-frame">
-                <!-- 請將 photo1.jpg 換成您的第一張相片檔名 -->
-                <img src="photo1.jpg" alt="婚禮合照 1">
+                <img src="photo1.jpg" alt="婚禮合照 1" onerror="this.src='photo1.JPG';">
             </div>
             <div class="page-sub-text" style="font-weight: 600; font-size: 16px; margin-top: 20px;">陳思翰 & 鄭伃庭</div>
             <div class="page-sub-text" style="font-style: italic; font-size: 13px;">You are the best thing I never planned.</div>
             <div class="page-sub-text" style="letter-spacing: 3px; margin-top: 10px;">爱 · 是 永 不 止 息</div>
         </div>
 
-        <!-- ──────────────── 頁面 2 ──────────────── -->
+        <!-- 頁面 2 -->
         <div class="wedding-page">
             <div class="photo-frame">
-                <!-- 請將 photo2.jpg 換成您的第二張相片檔名 -->
-                <img src="photo2.jpg" alt="婚禮合照 2">
+                <img src="photo2.jpg" alt="婚禮合照 2" onerror="this.src='photo2.JPG';">
             </div>
             <div class="page-sub-text" style="margin-top: 25px; line-height: 2;">
                 情誼如山深似海，文字難表我心意<br>
@@ -242,35 +222,32 @@
             </div>
         </div>
 
-        <!-- ──────────────── 頁面 3 (新郎介紹) ──────────────── -->
+        <!-- 頁面 3 -->
         <div class="wedding-page">
             <div class="page-top-text" style="align-self: flex-end; text-align: right;">THE<br><br>GROOM<br><br>/<br><br>陳思翰</div>
             <div class="photo-frame">
-                <!-- 請將 photo3.jpg 換成新郎獨照檔名 -->
-                <img src="photo3.jpg" alt="新郎獨照">
+                <img src="photo3.jpg" alt="新郎獨照" onerror="this.src='photo3.JPG';">
             </div>
             <div class="page-sub-text" style="font-style: italic; font-size: 13px; margin-top: 20px; line-height: 2;">
                 In the flow of time, love is the only eternity.
             </div>
         </div>
 
-        <!-- ──────────────── 頁面 4 (新娘介紹) ──────────────── -->
+        <!-- 頁面 4 -->
         <div class="wedding-page">
             <div class="page-top-text" style="align-self: flex-start;">THE<br><br>BRIDE<br><br>/<br><br>鄭伃庭</div>
             <div class="photo-frame">
-                <!-- 請將 photo4.jpg 換成新娘獨照檔名 -->
-                <img src="photo4.jpg" alt="新娘獨照">
+                <img src="photo4.jpg" alt="新娘獨照" onerror="this.src='photo4.JPG';">
             </div>
             <div class="page-sub-text" style="font-style: italic; font-size: 13px; margin-top: 20px; line-height: 2;">
                 You are the best thing I never planned.
             </div>
         </div>
 
-        <!-- ──────────────── 頁面 5 (倒數計時區) ──────────────── -->
+        <!-- 頁面 5 -->
         <div class="wedding-page">
             <div class="photo-frame">
-                <!-- 請將 photo5.jpg 換成對應相片檔名 -->
-                <img src="photo5.jpg" alt="婚紗照">
+                <img src="photo5.jpg" alt="婚紗照" onerror="this.src='photo5.JPG';">
             </div>
             <div class="page-sub-text" style="margin: 20px 0; line-height: 2;">
                 愛情不在於相互凝視<br>而在於共同眺望遠方
@@ -278,7 +255,6 @@
             <div class="page-sub-text" style="font-style: italic; font-size: 12px; margin-bottom: 20px; color: #777;">
                 Love does not consist in gazing at each other, but in looking outward together in the same direction.
             </div>
-            <!-- 動態倒數計時位置 -->
             <div class="countdown-box-wrapper">
                 <div class="time-unit"><span id="days">000</span><span>天</span></div>
                 <div class="time-unit"><span id="hours">00</span><span>时</span></div>
@@ -287,17 +263,15 @@
             </div>
         </div>
 
-        <!-- ──────────────── 頁面 6 (日曆與婚期) ──────────────── -->
+        <!-- 頁面 6 -->
         <div class="wedding-page">
             <div class="page-top-text" style="align-self: flex-end; text-align: right;">THE<br>WEDDING<br>TIME</div>
             <div class="photo-frame">
-                <!-- 請將 photo6.jpg 換成日曆頁面的相片檔名 -->
-                <img src="photo6.jpg" alt="日曆合照">
+                <img src="photo6.jpg" alt="日曆合照" onerror="this.src='photo6.JPG';">
             </div>
             <div class="page-sub-text" style="align-self: flex-start; font-style: italic; line-height: 1.8; margin: 15px 0;">
                 You<br>are<br>my end<br>and<br>my<br>beginning
             </div>
-            <!-- 日曆表格 -->
             <table class="calendar-table">
                 <thead>
                     <tr>
@@ -317,19 +291,16 @@
             </div>
         </div>
 
-        <!-- ──────────────── 頁面 7 (地址與 Google 地圖連結) ──────────────── -->
+        <!-- 頁面 7 -->
         <div class="wedding-page">
             <div class="photo-frame">
-                <!-- 請將 photo7.jpg 換成地址頁相片檔名 -->
-                <img src="photo7.jpg" alt="互動合照">
+                <img src="photo7up.jpg" alt="互動合照" onerror="this.src='photo7up.JPG';">
             </div>
             <div class="page-sub-text" style="font-style: italic; margin: 15px 0;">Love is the beauty of the soul.</div>
             <div class="page-top-text" style="align-self: flex-end; text-align: right;">ADDRESS</div>
             
-            <!-- 點擊可直接連結至 Google 地圖 -->
             <a href="https://maps.google.com/?q=格來天漾大飯店" target="_blank" class="map-link-btn" title="點擊開啟 Google 地圖">
-                <!-- 請將 map.jpg 換成您截圖的地圖圖片檔名 -->
-                <img src="map.jpg" alt="地圖導覽">
+                <img src="photo7down.jpg" alt="地圖導覽" onerror="this.src='photo7down.JPG';">
             </a>
 
             <div class="page-sub-text" style="font-weight: 600; font-size: 16px; margin-top: 15px;">
@@ -337,11 +308,10 @@
             </div>
         </div>
 
-        <!-- ──────────────── 頁面 8 (結語) ──────────────── -->
+        <!-- 頁面 8 -->
         <div class="wedding-page">
             <div class="photo-frame">
-                <!-- 請將 photo8.jpg 換成最後一張相片檔名 -->
-                <img src="photo8.jpg" alt="最後合照">
+                <img src="photo8L.jpg" alt="最後合照" onerror="this.src='photo8L.JPG';">
             </div>
             <div class="page-top-text" style="align-self: flex-end; text-align: right;">SAVE<br>THE<br>DATE</div>
             <div class="page-sub-text" style="margin: 25px 0; line-height: 2;">
@@ -352,14 +322,12 @@
             </div>
         </div>
 
-        <!-- 底部結語 -->
         <div class="footer-note">
             期待您的蒞臨見證我們的幸福時刻
         </div>
     </div>
 
     <script>
-        // 倒數計時功能 (2027-03-28)
         const weddingDate = new Date("2027-03-28T00:00:00").getTime();
 
         function updateCountdown() {
@@ -376,7 +344,7 @@
 
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const minutes = Math.floor((distance% (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             document.getElementById("days").innerText = days;
