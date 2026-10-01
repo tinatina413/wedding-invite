@@ -201,23 +201,24 @@
             display: block;
         }
 
-        /* 第八頁專用排版 */
+        /* 第八頁專用精準排版 (左側大圖往左移、右側小圖縮小並降低透明邊框陰影) */
         .page-eight-layout {
             display: flex;
             width: 100%;
             align-items: flex-start;
-            justify-content: center;
-            gap: 10px;
+            justify-content: flex-start;
             margin: 15px 0;
             position: relative;
+            padding-left: 5px;
         }
 
         .photo-eight-left {
-            width: 65%;
-            background: #fff;
-            padding: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            width: 68%;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 6px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             z-index: 1;
+            transform: translateX(-8px);
         }
 
         .photo-eight-left img {
@@ -227,13 +228,13 @@
         }
 
         .photo-eight-right {
-            width: 42%;
-            background: #fff;
-            padding: 6px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            width: 36%;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
             position: absolute;
-            right: 10px;
-            top: 25%;
+            right: 15px;
+            top: 22%;
             z-index: 2;
         }
 
@@ -341,7 +342,7 @@
             </div>
         </div>
 
-        <!-- 頁面 5 -->
+        <!-- 頁面 5 (倒數至 2027/3/28 中午 12:00，時改為繁體) -->
         <div class="wedding-page">
             <div class="page-sub-text" style="margin-bottom: 10px; line-height: 2;">
                 愛情不在於相互凝視<br>而在於共同眺望遠方
@@ -355,7 +356,7 @@
                 </div>
                 <div class="countdown-vertical">
                     <div class="time-item"><span id="days" class="number">000</span><span class="label">天</span></div>
-                    <div class="time-item"><span id="hours" class="number">00</span><span class="label">时</span></div>
+                    <div class="time-item"><span id="hours" class="number">00</span><span class="label">時</span></div>
                     <div class="time-item"><span id="minutes" class="number">00</span><span class="label">分</span></div>
                     <div class="time-item"><span id="seconds" class="number">00</span><span class="label">秒</span></div>
                 </div>
@@ -390,10 +391,9 @@
             </div>
         </div>
 
-        <!-- 頁面 7 -->
+        <!-- 頁面 7 (ADDRESS 移至地圖下方、飯店名稱上方) -->
         <div class="wedding-page">
             <div class="page-sub-text" style="font-style: italic; margin-bottom: 10px;">Love is the beauty of the soul.</div>
-            <div class="page-top-text" style="align-self: flex-end; text-align: right;">ADDRESS</div>
             
             <div class="page-seven-top">
                 <img src="photo7up.jpg" alt="第七頁上方照片" onerror="this.src='photo7up.JPG';">
@@ -408,12 +408,17 @@
                 </div>
             </div>
 
-            <div class="page-sub-text" style="font-weight: 600; font-size: 15px; margin-top: 20px; align-self: flex-start; text-align: left; line-height: 1.6;">
+            <!-- ADDRESS 改至地圖下方、飯店名稱上方 -->
+            <div style="width: 100%; display: flex; justify-content: flex-end; margin-top: 15px;">
+                <div style="font-size: 12px; letter-spacing: 3px; color: #8c7b75; text-align: right;">ADDRESS</div>
+            </div>
+
+            <div class="page-sub-text" style="font-weight: 600; font-size: 15px; margin-top: 5px; align-self: flex-start; text-align: left; line-height: 1.6;">
                 格來天漾大飯店13樓<br>天漾廳
             </div>
         </div>
 
-        <!-- 頁面 8 -->
+        <!-- 頁面 8 (左側大圖左移、右側小圖縮小且邊框透明度調整) -->
         <div class="wedding-page">
             <div class="page-top-text" style="align-self: flex-end; text-align: right;">SAVE<br>THE<br>DATE</div>
             
@@ -440,7 +445,8 @@
     </div>
 
     <script>
-        const weddingDate = new Date("2027-03-28T00:00:00").getTime();
+        // 設定倒數目標：2027年3月28日 中午 12:00:00
+        const weddingDate = new Date("2027-03-28T12:00:00").getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
