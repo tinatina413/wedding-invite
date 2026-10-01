@@ -39,6 +39,7 @@
             }
         }
 
+        /* 頂部標題列 */
         .header-title {
             text-align: center;
             padding: 15px;
@@ -58,6 +59,7 @@
             margin: 0 4px;
         }
 
+        /* 每一頁的區塊 + 動態進場特效 */
         .wedding-page {
             position: relative;
             width: 100%;
@@ -68,6 +70,17 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+            
+            /* 預設隱藏並往下偏移，準備做滑動動畫 */
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        /* 當捲動到該頁面時觸發動畫 */
+        .wedding-page.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .page-top-text {
@@ -87,6 +100,7 @@
             line-height: 1.8;
         }
 
+        /* 圖片外框自適應 (支援直式與橫式) */
         .photo-frame {
             width: 100%;
             max-width: 400px;
@@ -101,31 +115,120 @@
             width: 100%;
             height: auto;
             display: block;
+            object-fit: contain;
         }
 
-        .countdown-box-wrapper {
+        /* 第五頁專用：照片與倒數計時並排配置 */
+        .page-five-content {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .page-five-content .photo-frame {
+            flex: 1;
+            margin: 0;
+        }
+
+        .countdown-vertical {
             display: flex;
             flex-direction: column;
-            align-items: flex-end;
-            margin: 20px 0;
-            width: 100%;
-            padding-right: 20px;
+            gap: 12px;
+            text-align: right;
+            min-width: 70px;
         }
 
-        .time-unit {
-            font-size: 22px;
+        .time-item .number {
+            font-size: 20px;
             font-weight: 600;
             color: #b56576;
-            margin: 8px 0;
-            letter-spacing: 1px;
+            display: block;
         }
 
-        .time-unit span {
-            font-size: 13px;
+        .time-item .label {
+            font-size: 12px;
             color: #888;
-            margin-left: 5px;
         }
 
+        /* 第七頁專用：上圖與右下角圖交疊配置 */
+        .page-seven-layout {
+            position: relative;
+            width: 100%;
+            margin: 15px 0;
+        }
+
+        .photo-top-main {
+            width: 85%;
+            margin-left: auto;
+            margin-right: auto;
+            background: #fff;
+            padding: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .photo-top-main img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .photo-bottom-sub {
+            position: absolute;
+            right: 5px;
+            bottom: -20px;
+            width: 45%;
+            background: #fff;
+            padding: 6px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            z-index: 5;
+        }
+
+        .photo-bottom-sub img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* 第八頁專用：左大右小並排配置 */
+        .page-eight-layout {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .photo-left-big {
+            flex: 1.3;
+            background: #fff;
+            padding: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .photo-left-big img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .photo-right-small {
+            flex: 1;
+            background: #fff;
+            padding: 6px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transform: translateY(20px);
+        }
+
+        .photo-right-small img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* 日曆表格 */
         .calendar-table {
             width: 100%;
             max-width: 320px;
@@ -162,6 +265,7 @@
             color: #b56576;
         }
 
+        /* 地圖連結按鈕 */
         .map-link-btn {
             display: block;
             width: 100%;
@@ -195,11 +299,12 @@
 <body>
 
     <div class="wedding-container">
+        <!-- 頂部標題列 -->
         <div class="header-title">
             陳思翰 <span>❤</span> 鄭伃庭 的結婚邀請函
         </div>
 
-        <!-- 頁面 1 -->
+        <!-- ──────────────── 頁面 1 ──────────────── -->
         <div class="wedding-page">
             <div class="page-top-text">WELCOME<br>TO<br>OUR WEDDING<br>/<br>03 / 28</div>
             <div class="photo-frame">
@@ -210,7 +315,7 @@
             <div class="page-sub-text" style="letter-spacing: 3px; margin-top: 10px;">爱 · 是 永 不 止 息</div>
         </div>
 
-        <!-- 頁面 2 -->
+        <!-- ──────────────── 頁面 2 ──────────────── -->
         <div class="wedding-page">
             <div class="photo-frame">
                 <img src="photo2.jpg" alt="婚禮合照 2" onerror="this.src='photo2.JPG';">
@@ -222,7 +327,7 @@
             </div>
         </div>
 
-        <!-- 頁面 3 -->
+        <!-- ──────────────── 頁面 3 ──────────────── -->
         <div class="wedding-page">
             <div class="page-top-text" style="align-self: flex-end; text-align: right;">THE<br><br>GROOM<br><br>/<br><br>陳思翰</div>
             <div class="photo-frame">
@@ -233,7 +338,7 @@
             </div>
         </div>
 
-        <!-- 頁面 4 -->
+        <!-- ──────────────── 頁面 4 ──────────────── -->
         <div class="wedding-page">
             <div class="page-top-text" style="align-self: flex-start;">THE<br><br>BRIDE<br><br>/<br><br>鄭伃庭</div>
             <div class="photo-frame">
@@ -244,26 +349,28 @@
             </div>
         </div>
 
-        <!-- 頁面 5 -->
+        <!-- ──────────────── 頁面 5 (倒數計時與照片並排) ──────────────── -->
         <div class="wedding-page">
-            <div class="photo-frame">
-                <img src="photo5.jpg" alt="婚紗照" onerror="this.src='photo5.JPG';">
-            </div>
-            <div class="page-sub-text" style="margin: 20px 0; line-height: 2;">
+            <div class="page-sub-text" style="margin-bottom: 10px; line-height: 2;">
                 愛情不在於相互凝視<br>而在於共同眺望遠方
             </div>
-            <div class="page-sub-text" style="font-style: italic; font-size: 12px; margin-bottom: 20px; color: #777;">
+            <div class="page-sub-text" style="font-style: italic; font-size: 12px; margin-bottom: 15px; color: #777;">
                 Love does not consist in gazing at each other, but in looking outward together in the same direction.
             </div>
-            <div class="countdown-box-wrapper">
-                <div class="time-unit"><span id="days">000</span><span>天</span></div>
-                <div class="time-unit"><span id="hours">00</span><span>时</span></div>
-                <div class="time-unit"><span id="minutes">00</span><span>分</span></div>
-                <div class="time-unit"><span id="seconds">00</span><span>秒</span></div>
+            <div class="page-five-content">
+                <div class="photo-frame">
+                    <img src="photo5.jpg" alt="婚紗照" onerror="this.src='photo5.JPG';">
+                </div>
+                <div class="countdown-vertical">
+                    <div class="time-item"><span id="days" class="number">000</span><span class="label">天</span></div>
+                    <div class="time-item"><span id="hours" class="number">00</span><span class="label">时</span></div>
+                    <div class="time-item"><span id="minutes" class="number">00</span><span class="label">分</span></div>
+                    <div class="time-item"><span id="seconds" class="number">00</span><span class="label">秒</span></div>
+                </div>
             </div>
         </div>
 
-        <!-- 頁面 6 -->
+        <!-- ──────────────── 頁面 6 (日曆) ──────────────── -->
         <div class="wedding-page">
             <div class="page-top-text" style="align-self: flex-end; text-align: right;">THE<br>WEDDING<br>TIME</div>
             <div class="photo-frame">
@@ -291,16 +398,24 @@
             </div>
         </div>
 
-        <!-- 頁面 7 -->
+        <!-- ──────────────── 頁面 7 (地圖與上下交疊照片) ──────────────── -->
         <div class="wedding-page">
-            <div class="photo-frame">
-                <img src="photo7up.jpg" alt="互動合照" onerror="this.src='photo7up.JPG';">
-            </div>
-            <div class="page-sub-text" style="font-style: italic; margin: 15px 0;">Love is the beauty of the soul.</div>
+            <div class="page-sub-text" style="font-style: italic; margin-bottom: 15px;">Love is the beauty of the soul.</div>
             <div class="page-top-text" style="align-self: flex-end; text-align: right;">ADDRESS</div>
             
-            <a href="https://maps.google.com/?q=格來天漾大飯店" target="_blank" class="map-link-btn" title="點擊開啟 Google 地圖">
-                <img src="photo7down.jpg" alt="地圖導覽" onerror="this.src='photo7down.JPG';">
+            <!-- 第七頁：上圖與右下角圖交疊 -->
+            <div class="page-seven-layout">
+                <div class="photo-top-main">
+                    <img src="photo7up.jpg" alt="第七頁上方照片" onerror="this.src='photo7up.JPG';">
+                </div>
+                <div class="photo-bottom-sub">
+                    <img src="photo7down.jpg" alt="第七頁右下角照片" onerror="this.src='photo7down.JPG';">
+                </div>
+            </div>
+
+            <!-- 地圖連結按鈕 (連至指定的 Google 網址) -->
+            <a href="https://maps.app.goo.gl/SrUy19xhDaGLDZk89?g_st=ic" target="_blank" class="map-link-btn" title="點擊開啟 Google 地圖" style="margin-top: 35px;">
+                <img src="map.jpg" alt="地圖" onerror="this.src='map.JPG';">
             </a>
 
             <div class="page-sub-text" style="font-weight: 600; font-size: 16px; margin-top: 15px;">
@@ -308,16 +423,24 @@
             </div>
         </div>
 
-        <!-- 頁面 8 -->
+        <!-- ──────────────── 頁面 8 (左大右小並排) ──────────────── -->
         <div class="wedding-page">
-            <div class="photo-frame">
-                <img src="photo8L.jpg" alt="最後合照" onerror="this.src='photo8L.JPG';">
-            </div>
             <div class="page-top-text" style="align-self: flex-end; text-align: right;">SAVE<br>THE<br>DATE</div>
-            <div class="page-sub-text" style="margin: 25px 0; line-height: 2;">
+            
+            <!-- 第八頁：左邊 photo8L.jpg，右邊 photo8R.jpg -->
+            <div class="page-eight-layout">
+                <div class="photo-left-big">
+                    <img src="photo8L.jpg" alt="第八頁左側照片" onerror="this.src='photo8L.JPG';">
+                </div>
+                <div class="photo-right-small">
+                    <img src="photo8R.jpg" alt="第八頁右側照片" onerror="this.src='photo8R.JPG';">
+                </div>
+            </div>
+
+            <div class="page-sub-text" style="margin: 25px 0 15px 0; line-height: 2;">
                 願你永遠<br>被愛、快樂<br>包圍
             </div>
-            <div class="page-sub-text" style="margin-top: 15px; font-weight: 500;">
+            <div class="page-sub-text" style="font-weight: 500;">
                 好久不見 · 婚禮見
             </div>
         </div>
@@ -328,6 +451,7 @@
     </div>
 
     <script>
+        // 倒數計時功能 (2027-03-28)
         const weddingDate = new Date("2027-03-28T00:00:00").getTime();
 
         function updateCountdown() {
@@ -344,7 +468,7 @@
 
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance% (1000 * 60 * 60)) / (1000 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             document.getElementById("days").innerText = days;
@@ -355,6 +479,19 @@
 
         setInterval(updateCountdown, 1000);
         updateCountdown();
+
+        // 捲動進場特效：當頁面滑進視窗範圍時自動淡入浮現
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.wedding-page').forEach(page => {
+            observer.observe(page);
+        });
     </script>
 
 </body>
