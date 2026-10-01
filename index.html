@@ -58,495 +58,6 @@
             margin: 0 4px;
         }
 
-        /* 每一頁動態進場特效 */
-        .wedding-page {
-            position: relative;
-            width: 100%;
-            padding: 40px 25px;
-            background-color: #fcfbfa;
-            border-bottom: 1px solid #f0ede6;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-
-        .wedding-page.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .page-top-text {
-            font-size: 12px;
-            letter-spacing: 3px;
-            color: #8c7b75;
-            margin-bottom: 20px;
-            align-self: flex-start;
-            line-height: 1.6;
-        }
-
-        .page-sub-text {
-            font-size: 14px;
-            letter-spacing: 2px;
-            color: #666;
-            margin: 15px 0;
-            line-height: 1.8;
-        }
-
-        .photo-frame {
-            width: 100%;
-            max-width: 400px;
-            margin: 15px 0;
-            border-radius: 4px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            background: #fff;
-        }
-
-        .photo-frame img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: contain;
-        }
-
-        /* 第五頁專用排版 */
-        .page-five-content {
-            display: flex;
-            width: 100%;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-            margin: 15px 0;
-        }
-
-        .page-five-content .photo-frame {
-            flex: 1;
-            margin: 0;
-        }
-
-        .countdown-vertical {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            text-align: right;
-            min-width: 70px;
-        }
-
-        .time-item .number {
-            font-size: 20px;
-            font-weight: 600;
-            color: #b56576;
-            display: block;
-        }
-
-        .time-item .label {
-            font-size: 12px;
-            color: #888;
-        }
-
-        /* ─── 第七頁精準對應排版（對應第一張圖） ─── */
-        .page-seven-container {
-            width: 100%;
-            position: relative;
-            margin-top: 10px;
-        }
-
-        .p7-top-photo {
-            width: 100%;
-            background: #fff;
-            padding: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            margin-bottom: 30px;
-        }
-
-        .p7-top-photo img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* 底部左右並排區塊：左側地圖、右側照片 */
-        .p7-bottom-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            width: 100%;
-            gap: 15px;
-        }
-
-        .p7-map-box {
-            width: 48%;
-            background: #fff;
-            padding: 6px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            border-radius: 4px;
-            transition: transform 0.2s;
-            text-align: left;
-        }
-
-        .p7-map-box:hover {
-            transform: scale(1.02);
-        }
-
-        .p7-map-box img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .p7-right-photo {
-            width: 48%;
-            background: #fff;
-            padding: 6px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            border-radius: 4px;
-        }
-
-        .p7-right-photo img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* ─── 第八頁精準對應排版（對應第二張圖：左大右小交疊） ─── */
-        .page-eight-container {
-            width: 100%;
-            position: relative;
-            height: 480px;
-            margin: 20px 0;
-        }
-
-        .p8-left-photo {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 72%;
-            background: #fff;
-            padding: 8px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-            z-index: 1;
-        }
-
-        .p8-left-photo img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .p8-right-photo {
-            position: absolute;
-            right: 0;
-            top: 90px;
-            width: 52%;
-            background: #fff;
-            padding: 6px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-            z-index: 2;
-        }
-
-        .p8-right-photo img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* 日曆表格 */
-        .calendar-table {
-            width: 100%;
-            max-width: 320px;
-            margin: 20px auto;
-            border-collapse: collapse;
-            font-size: 14px;
-            color: #444;
-        }
-
-        .calendar-table th {
-            color: #b56576;
-            padding: 8px;
-            font-weight: 400;
-        }
-
-        .calendar-table td {
-            padding: 10px;
-            text-align: center;
-        }
-
-        .calendar-table td.selected {
-            position: relative;
-            color: #b56576;
-            font-weight: bold;
-        }
-
-        .calendar-table td.selected::after {
-            content: '♥';
-            position: absolute;
-            bottom: 2px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 12px;
-            color: #b56576;
-        }
-
-        .footer-note {
-            text-align: center;
-            padding: 30px;
-            font-size: 13px;
-            color: #888;
-            background: #fff;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="wedding-container">
-        <!-- 頂部標題列 -->
-        <div class="header-title">
-            陳思翰 <span>❤</span> 鄭伃庭 的結婚邀請函
-        </div>
-
-        <!-- 頁面 1 -->
-        <div class="wedding-page">
-            <div class="page-top-text">WELCOME<br>TO<br>OUR WEDDING<br>/<br>03 / 28</div>
-            <div class="photo-frame">
-                <img src="photo1.jpg" alt="婚禮合照 1" onerror="this.src='photo1.JPG';">
-            </div>
-            <div class="page-sub-text" style="font-weight: 600; font-size: 16px; margin-top: 20px;">陳思翰 & 鄭伃庭</div>
-            <div class="page-sub-text" style="font-style: italic; font-size: 13px;">You are the best thing I never planned.</div>
-            <div class="page-sub-text" style="letter-spacing: 3px; margin-top: 10px;">爱 · 是 永 不 止 息</div>
-        </div>
-
-        <!-- 頁面 2 -->
-        <div class="wedding-page">
-            <div class="photo-frame">
-                <img src="photo2.jpg" alt="婚禮合照 2" onerror="this.src='photo2.JPG';">
-            </div>
-            <div class="page-sub-text" style="margin-top: 25px; line-height: 2;">
-                情誼如山深似海，文字難表我心意<br>
-                期待您蒞臨這場以婚禮為名義的聚會<br>
-                感謝您的如約而至
-            </div>
-        </div>
-
-        <!-- 頁面 3 -->
-        <div class="wedding-page">
-            <div class="page-top-text" style="align-self: flex-end; text-align: right;">THE<br><br>GROOM<br><br>/<br><br>陳思翰</div>
-            <div class="photo-frame">
-                <img src="photo3.jpg" alt="新郎獨照" onerror="this.src='photo3.JPG';">
-            </div>
-            <div class="page-sub-text" style="font-style: italic; font-size: 13px; margin-top: 20px; line-height: 2;">
-                In the flow of time, love is the only eternity.
-            </div>
-        </div>
-
-        <!-- 頁面 4 -->
-        <div class="wedding-page">
-            <div class="page-top-text" style="align-self: flex-start;">THE<br><br>BRIDE<br><br>/<br><br>鄭伃庭</div>
-            <div class="photo-frame">
-                <img src="photo4.jpg" alt="新娘獨照" onerror="this.src='photo4.JPG';">
-            </div>
-            <div class="page-sub-text" style="font-style: italic; font-size: 13px; margin-top: 20px; line-height: 2;">
-                You are the best thing I never planned.
-            </div>
-        </div>
-
-        <!-- 頁面 5 -->
-        <div class="wedding-page">
-            <div class="page-sub-text" style="margin-bottom: 10px; line-height: 2;">
-                愛情不在於相互凝視<br>而在於共同眺望遠方
-            </div>
-            <div class="page-sub-text" style="font-style: italic; font-size: 12px; margin-bottom: 15px; color: #777;">
-                Love does not consist in gazing at each other, but in looking outward together in the same direction.
-            </div>
-            <div class="page-five-content">
-                <div class="photo-frame">
-                    <img src="photo5.jpg" alt="婚紗照" onerror="this.src='photo5.JPG';">
-                </div>
-                <div class="countdown-vertical">
-                    <div class="time-item"><span id="days" class="number">000</span><span class="label">天</span></div>
-                    <div class="time-item"><span id="hours" class="number">00</span><span class="label">时</span></div>
-                    <div class="time-item"><span id="minutes" class="number">00</span><span class="label">分</span></div>
-                    <div class="time-item"><span id="seconds" class="number">00</span><span class="label">秒</span></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 頁面 6 -->
-        <div class="wedding-page">
-            <div class="page-top-text" style="align-self: flex-end; text-align: right;">THE<br>WEDDING<br>TIME</div>
-            <div class="photo-frame">
-                <img src="photo6.jpg" alt="日曆合照" onerror="this.src='photo6.JPG';">
-            </div>
-            <div class="page-sub-text" style="align-self: flex-start; font-style: italic; line-height: 1.8; margin: 15px 0;">
-                You<br>are<br>my end<br>and<br>my<br>beginning
-            </div>
-            <table class="calendar-table">
-                <thead>
-                    <tr>
-                        <th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th><th>日</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-                    <tr><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td></tr>
-                    <tr><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td></tr>
-                    <tr><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td class="selected">28</td></tr>
-                    <tr><td>29</td><td>30</td><td>31</td><td></td><td></td><td></td><td></td></tr>
-                </tbody>
-            </table>
-            <div class="page-sub-text" style="margin-top: 20px; font-weight: 500;">
-                2027年3月28日 星期日<br>農曆二月廿一 12:00
-            </div>
-        </div>
-
-        <!-- 頁面 7 (對應第一張圖：上方橫式圖、左下地圖、右下照片) -->
-        <div class="wedding-page">
-            <div class="page-sub-text" style="font-style: italic; margin-bottom: 10px;">Love is the beauty of the soul.</div>
-            <div class="page-top-text" style="align-self: flex-end; text-align: right; margin-bottom: 10px;">ADDRESS</div>
-            
-            <div class="page-seven-container">
-                <!-- 上方橫式主圖 -->
-                <div class="p7-top-photo">
-                    <img src="photo7up.jpg" alt="第七頁上方照片" onerror="this.src='photo7up.JPG';">
-                </div>
-
-                <!-- 底部左右並排：左側地圖、右側右下角照片 -->
-                <div class="p7-bottom-row">
-                    <!-- 左側地圖 (點擊可直接連結至指定的 Google 地圖) -->
-                    <a href="https://maps.app.goo.gl/SrUy19xhDaGLDZk89?g_st=ic" target="_blank" class="p7-map-box" title="點擊開啟 Google 地圖">
-                        <img src="map.jpg" alt="地圖" onerror="this.src='map.JPG';">
-                    </a>
-
-                    <!-- 右下角照片 -->
-                    <div class="p7-right-photo">
-                        <img src="photo7down.jpg" alt="第七頁右下角照片" onerror="this.src='photo7down.JPG';">
-                    </div>
-                </div>
-            </div>
-
-            <div class="page-sub-text" style="font-weight: 600; font-size: 16px; margin-top: 25px;">
-                格來天漾大飯店13樓<br>天漾廳
-            </div>
-        </div>
-
-        <!-- 頁面 8 (對應第二張圖：左側大直式照片壓在右側照片下方) -->
-        <div class="wedding-page">
-            <div class="page-top-text" style="align-self: flex-end; text-align: right;">SAVE<br>THE<br>DATE</div>
-            
-            <div class="page-eight-container">
-                <!-- 左側照片 (photo8L.jpg) -->
-                <div class="p8-left-photo">
-                    <img src="photo8L.jpg" alt="第八頁左側照片" onerror="this.src='photo8L.JPG';">
-                </div>
-                <!-- 右側照片 (photo8R.jpg) -->
-                <div class="p8-right-photo">
-                    <img src="photo8R.jpg" alt="第八頁右側照片" onerror="this.src='photo8R.JPG';">
-                </div>
-            </div>
-
-            <div class="page-sub-text" style="margin: 25px 0 15px 0; line-height: 2;">
-                願你永遠<br>被愛、快樂<br>包圍
-            </div>
-            <div class="page-sub-text" style="font-weight: 500;">
-                好久不見 · 婚禮見
-            </div>
-        </div>
-
-        <div class="footer-note">
-            期待您的蒞臨見證我們的幸福時刻
-        </div>
-    </div>
-
-    <script>
-        // 倒數計時功能 (2027-03-28)
-        const weddingDate = new Date("2027-03-28T00:00:00").getTime();
-
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
-
-            if (distance < 0) {
-                document.getElementById("days").innerText = "0";
-                document.getElementById("hours").innerText = "0";
-                document.getElementById("minutes").innerText = "0";
-                document.getElementById("seconds").innerText = "0";
-                return;
-            }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 這就為您精準調整！根據您提供的第七頁與第八頁截圖，我已經為您重新調整了這兩個頁面的排版配置：
-
-1. **第七頁（ADDRESS）**：上方維持寬版的橫式主照片（`photo7up.jpg`），下方採用左右雙欄設計——左側為地圖（`map.jpg`，點擊可直接連結至您的 Google 地圖）與飯店文字資訊，右側下方精準嵌入您的副照片（`photo7down.jpg`）。
-2. **第八頁（SAVE THE DATE）**：左側為直式大照片（`photo8L.jpg`），右側為微幅往下錯位疊加的小照片（`photo8R.jpg`），並完美保留「願你永遠被愛、快樂包圍」以及「好久不見 · 婚禮見」的文字排版。
-
-請將 GitHub 裡的 `index.html` 內容**全部清空**，並貼上以下這份完整的程式碼：
-
-```html
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>陳思翰 & 鄭伃庭 的結婚邀請函</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: #1a1a1a;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            color: #444;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .wedding-container {
-            width: 100%;
-            max-width: 480px;
-            background: #fcfbfa;
-            position: relative;
-            overflow-x: hidden;
-            box-shadow: 0 0 25px rgba(0,0,0,0.5);
-        }
-
-        @media (min-width: 481px) {
-            body {
-                padding: 20px 0;
-            }
-            .wedding-container {
-                border-radius: 16px;
-            }
-        }
-
-        .header-title {
-            text-align: center;
-            padding: 15px;
-            font-size: 16px;
-            font-weight: 500;
-            letter-spacing: 2px;
-            color: #555;
-            background: #ffffff;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid #eee;
-        }
-
-        .header-title span {
-            color: #d46a6a;
-            margin: 0 4px;
-        }
-
         .wedding-page {
             position: relative;
             width: 100%;
@@ -638,7 +149,7 @@
             color: #888;
         }
 
-        /* 第七頁專用排版 (對應您的第一張圖) */
+        /* 第七頁專用排版 */
         .page-seven-top {
             width: 100%;
             max-width: 400px;
@@ -677,12 +188,6 @@
             display: block;
         }
 
-        .address-text-box {
-            width: 52%;
-            text-align: left;
-            padding-top: 10px;
-        }
-
         .photo-right-sub {
             width: 45%;
             background: #fff;
@@ -696,7 +201,7 @@
             display: block;
         }
 
-        /* 第八頁專用排版 (對應您的第二張圖) */
+        /* 第八頁專用排版 */
         .page-eight-layout {
             display: flex;
             width: 100%;
@@ -885,19 +390,17 @@
             </div>
         </div>
 
-        <!-- 頁面 7 (對應您的第一張圖：上方橫式圖、左側地圖、右下角副圖) -->
+        <!-- 頁面 7 -->
         <div class="wedding-page">
             <div class="page-sub-text" style="font-style: italic; margin-bottom: 10px;">Love is the beauty of the soul.</div>
             <div class="page-top-text" style="align-self: flex-end; text-align: right;">ADDRESS</div>
             
-            <!-- 上方主照片 (photo7up.jpg) -->
             <div class="page-seven-top">
                 <img src="photo7up.jpg" alt="第七頁上方照片" onerror="this.src='photo7up.JPG';">
             </div>
 
-            <!-- 下方左右區塊：左側地圖 + 右側副照片 -->
             <div class="page-seven-bottom">
-                <a href="[https://maps.app.goo.gl/SrUy19xhDaGLDZk89?g_st=ic](https://maps.app.goo.gl/SrUy19xhDaGLDZk89?g_st=ic)" target="_blank" class="map-box" title="點擊開啟 Google 地圖">
+                <a href="https://maps.app.goo.gl/SrUy19xhDaGLDZk89?g_st=ic" target="_blank" class="map-box" title="點擊開啟 Google 地圖">
                     <img src="map.jpg" alt="地圖" onerror="this.src='map.JPG';">
                 </a>
                 <div class="photo-right-sub">
@@ -910,7 +413,7 @@
             </div>
         </div>
 
-        <!-- 頁面 8 (對應您的第二張圖：左大右小錯位並排) -->
+        <!-- 頁面 8 -->
         <div class="wedding-page">
             <div class="page-top-text" style="align-self: flex-end; text-align: right;">SAVE<br>THE<br>DATE</div>
             
